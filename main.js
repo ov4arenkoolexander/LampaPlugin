@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    if (!window.Lampa) return;
+
     console.log('Main.js завантажено');
 
     Lampa.Listener.follow('app', function (e) {
@@ -19,10 +21,9 @@
                 name: '🎬 Саня'
             },
             onChange: function () {
-                Lampa.Noty.show('Наступний крок — власне меню');
+                Lampa.Noty.show('Кнопка працює!');
             }
         });
-
     });
 
 })();
