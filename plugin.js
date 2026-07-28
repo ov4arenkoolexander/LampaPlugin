@@ -1,44 +1,14 @@
 (function () {
     'use strict';
 
-    console.log('My Lampa Plugin loaded');
+    if (!window.Lampa) return;
 
-    if (window.Lampa) {
-        Lampa.Noty.show('Привіт! Плагін працює.');
-    }
-})();
-<<<<<<< HEAD:myplugin.js.txt
-(function () {
-    'use strict';
+    console.log('[Sania Plugin] Завантажено');
 
-    function addSource() {
-
-        Lampa.Component.add('my_source', {
-            name: 'Моє джерело',
-
-            start: function () {
-                Lampa.Noty.show('Джерело запущено');
-
-                let films = [
-                    {
-                        title: 'Мій перший фільм',
-                        year: '2026'
-                    },
-                    {
-                        title: 'Другий фільм',
-                        year: '2025'
-                    }
-                ];
-
-                console.log(films);
-            }
-        });
-
-    }
-
-    if (window.Lampa) {
-        addSource();
-        Lampa.Noty.show('Джерело додано!');
-    }
+    Lampa.Listener.follow('app', function (event) {
+        if (event.type === 'ready') {
+            Lampa.Noty.show('Плагін Сані запущено 🚀');
+        }
+    });
 
 })();
