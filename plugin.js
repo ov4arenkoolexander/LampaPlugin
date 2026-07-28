@@ -3,12 +3,26 @@
 
     if (!window.Lampa) return;
 
-    console.log('[Sania Plugin] Завантажено');
-
     Lampa.Listener.follow('app', function (event) {
-        if (event.type === 'ready') {
-            Lampa.Noty.show('Плагін Сані запущено 🚀');
-        }
+
+        if (event.type !== 'ready') return;
+
+        Lampa.Noty.show('Плагін Сані запущено 🚀');
+
+        Lampa.SettingsApi.addParam({
+            component: 'interface',
+            param: {
+                name: 'sania_test',
+                type: 'button'
+            },
+            field: {
+                name: '🎬 Плагін Сані'
+            },
+            onChange: function () {
+                Lampa.Noty.show('Кнопка працює!');
+            }
+        });
+
     });
 
 })();
