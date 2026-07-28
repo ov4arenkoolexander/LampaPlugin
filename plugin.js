@@ -19,7 +19,17 @@
                 name: '🎬 Плагін Сані'
             },
             onChange: function () {
-                Lampa.Noty.show('Кнопка працює!');
+
+    Lampa.Modal.open({
+        title: '🎬 Плагін Сані',
+        html: `
+            <div style="padding:20px">
+                <h2>Вітаю!</h2>
+                <p>Це моє перше власне вікно в Lampa.</p>
+                <p>Незабаром тут буде список моїх фільмів.</p>
+            </div>
+        `
+    });
             }
         });
 
